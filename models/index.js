@@ -16,4 +16,4 @@ const getTaskById = async (id) => {
     return db.collection('tasks').insertOne(ObjectId(id));
 }
 
-module.exports = { createTask }
+module.exports = { createTask, getTask, getTaskById }
