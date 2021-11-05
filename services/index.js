@@ -1,23 +1,24 @@
-const express = requires('express');
-const { createTask, findTask, findTaskById } = require('./models');
+const express = require('express');
+const { createTask, getTask, getTaskById } = require('../models');
 
-const serviceCreateTask = (task) => {
+const serviceCreateTask = async (task) => {
     const getTask = await createTask(task);
     return getTask;
 }
 
-const servicefindTask = () => {
-    const getTask = await findTask();
-    return getTask;
+const serviceFindTask = async () => {
+    console.log('service');
+    const get = await getTask();
+    return get;
 }
 
-const servicefindTaskById = (id) => {
-    const getTask = await findTaskById(id);
+const serviceFindTaskById = async (id) => {
+    const getTask = await getTaskById(id);
     return getTask;
 }
 
 module.exports = {
     serviceCreateTask,
-    servicefindTask,
-    servicefindTaskById,
+    serviceFindTask,
+    serviceFindTaskById,
 }
